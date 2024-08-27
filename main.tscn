@@ -1,9 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf2skljfmoj6w"]
+[gd_scene load_steps=4 format=3 uid="uid://bf2skljfmoj6w"]
 
 [ext_resource type="Script" path="res://grid.gd" id="1_lyfio"]
+[ext_resource type="Texture2D" uid="uid://gd8xktem37xe" path="res://icon.svg" id="2_3ixqg"]
+[ext_resource type="Script" path="res://mover.gd" id="3_vcnhy"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("1_lyfio")
-grid_color = Color(0.41, 0.41, 0.41, 1)
+grid_color = Color(0.6111, 0.6111, 0.63, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("label")]
+position = Vector2(10, 10)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_3ixqg")
+script = ExtResource("3_vcnhy")
+label = NodePath("../CanvasLayer/Control/Label")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+position = Vector2(-100, -100)
+scale = Vector2(10, 10)
+zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+offset_left = -1.0
+offset_top = 376.0
+offset_right = 62.0
+offset_bottom = 399.0
+text = "Position"
+vertical_alignment = 2
