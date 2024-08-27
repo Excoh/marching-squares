@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf2skljfmoj6w"]
+
+[ext_resource type="Script" path="res://grid.gd" id="1_lyfio"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource("1_lyfio")
+grid_color = Color(0.41, 0.41, 0.41, 1)
