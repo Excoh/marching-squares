@@ -1,34 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf2skljfmoj6w"]
+[gd_scene load_steps=5 format=3 uid="uid://bf2skljfmoj6w"]
 
 [ext_resource type="Script" path="res://grid.gd" id="1_lyfio"]
 [ext_resource type="Texture2D" uid="uid://gd8xktem37xe" path="res://icon.svg" id="2_3ixqg"]
 [ext_resource type="Script" path="res://mover.gd" id="3_vcnhy"]
+[ext_resource type="Script" path="res://camera_controller.gd" id="4_orihq"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("1_lyfio")
-grid_color = Color(0.6111, 0.6111, 0.63, 1)
+radius = 2.5
+cell_color_off = Color(0.230315, 0.230315, 0.230315, 1)
+cell_color_on = Color(0.917538, 0.73743, 0.48375, 1)
+line_color = Color(0.962302, 0.837955, 0.892017, 1)
+resolution = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("label")]
+visible = false
 position = Vector2(10, 10)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_3ixqg")
 script = ExtResource("3_vcnhy")
 label = NodePath("../CanvasLayer/Control/Label")
 
-[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
-position = Vector2(-100, -100)
-scale = Vector2(10, 10)
-zoom = Vector2(4, 4)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(300, 200)
+position_smoothing_enabled = true
+script = ExtResource("4_orihq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = -1.0
 offset_top = 376.0
 offset_right = 62.0
