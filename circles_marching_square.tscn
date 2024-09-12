@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3oaop0ni08wg"]
+
+[ext_resource type="Script" path="res://circles_marching_square.gd" id="1_ke7wt"]
+[ext_resource type="PackedScene" uid="uid://bt63tubebbd6h" path="res://mouse_pos_label.tscn" id="2_t7xxg"]
+[ext_resource type="Script" path="res://mouse_debug_info.gd" id="3_gm47x"]
+
+[node name="CirclesMarchingSquare" type="Node2D"]
+script = ExtResource("1_ke7wt")
+grid_color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="MouseDebugInfo" parent="." instance=ExtResource("2_t7xxg")]
+script = ExtResource("3_gm47x")
+is_mouse_visible = false
+is_debug_info_visible = false

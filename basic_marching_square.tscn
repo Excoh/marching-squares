@@ -1,32 +1,32 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf2skljfmoj6w"]
 
-[ext_resource type="Script" path="res://grid.gd" id="1_lyfio"]
-[ext_resource type="Texture2D" uid="uid://gd8xktem37xe" path="res://icon.svg" id="2_3ixqg"]
-[ext_resource type="Script" path="res://mover.gd" id="3_vcnhy"]
-[ext_resource type="Script" path="res://camera_controller.gd" id="4_orihq"]
+[ext_resource type="Script" path="res://grid.gd" id="1_n74iy"]
+[ext_resource type="Texture2D" uid="uid://gd8xktem37xe" path="res://icon.svg" id="2_fgebs"]
+[ext_resource type="Script" path="res://mover.gd" id="3_aj0qn"]
+[ext_resource type="Script" path="res://camera_controller.gd" id="4_f7kgo"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Grid" type="Node2D" parent="."]
-script = ExtResource("1_lyfio")
+script = ExtResource("1_n74iy")
 radius = 2.5
 cell_color_off = Color(0.230315, 0.230315, 0.230315, 1)
-cell_color_on = Color(0.917538, 0.73743, 0.48375, 1)
+cell_color_on = Color(0.921569, 0.258824, 0.486275, 0.129412)
 line_color = Color(0.962302, 0.837955, 0.892017, 1)
-resolution = 15
+resolution = 14
 
 [node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("label")]
 visible = false
 position = Vector2(10, 10)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_3ixqg")
-script = ExtResource("3_vcnhy")
+texture = ExtResource("2_fgebs")
+script = ExtResource("3_aj0qn")
 label = NodePath("../CanvasLayer/Control/Label")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(300, 200)
 position_smoothing_enabled = true
-script = ExtResource("4_orihq")
+script = ExtResource("4_f7kgo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
